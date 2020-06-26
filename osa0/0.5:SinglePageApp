@@ -1,0 +1,16 @@
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+palvelin->selain: HTML- koodi
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin->selain: CSS - koodi
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+palvelin->selain: JavaScript - koodi
+note over selain
+selain suorittaa vastaanotettua JS-koodia
+ja pyytää palvelimelta JSON-datan
+end note
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin->selain: JSON-tiedosto
+note over selain
+tapahtumankäsittelijä suorittaa toiminnon
+jonka avulla näytölle tulostuu näkyviin kaikki viestit
+end note 
