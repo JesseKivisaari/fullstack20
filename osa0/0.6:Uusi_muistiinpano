@@ -1,0 +1,28 @@
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+palvelin-->selain: HTML- koodi
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin-->selain: CSS - koodi
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+palvelin-->selain: JavaScript - koodi
+note over selain
+selain suorittaa vastaanotettua JS-koodia
+ja pyytää palvelimelta JSON-datan
+end note
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin-->selain: JSON-tiedosto
+note over selain
+tapahtumankäsittelijä suorittaa toiminnon
+jonka avulla näytölle tulostuu näkyviin kaikki viestit
+end note 
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+palvelin-->selain: statuskoodi 201: palvelin ei vaadi uudelleenohjausta
+note over selain
+selaimen javascript koodi hoitaa tietojen lähettämisen
+tavallisen lomakkeen tietojen lähettämisen sijasta. 
+end note
+note over selain
+JS - koodi hakee sivulta lomake-elementin ja kutsuu sille tarkoitetun
+event handlerin, joka puolestaan estää sivuston latautumisen uudelleen.
+Tämän jälkeen js-koodi luo viestin sekä lisää sen viestilistalle. 
+end note
+selain->palvelin: HTTP POST: (uusi muistiinpano palvelimelle JSON-muodossa.) 
